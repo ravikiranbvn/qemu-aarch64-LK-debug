@@ -1,0 +1,18 @@
+# Start GDB and load the vmlinux file
+gdb-multiarch linux-6.10.2/vmlinux
+
+# Set architecture if needed
+set architecture aarch64
+
+# Connect to QEMU
+target remote :1234
+
+# Verify that symbols are loaded
+info functions
+info sources
+
+# Set a breakpoint by file and line number
+break init/main.c:100
+
+# Start the execution
+continue
