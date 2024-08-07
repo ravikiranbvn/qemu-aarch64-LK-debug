@@ -47,3 +47,4 @@ Clean all
 - use `make run_qemu` to launch in debug mode (in one terminal)
 - Debug in VScode: press debug and select 'Attach to QEMU' configuration
 - Debug the code as required
+- GDB in terminal (refer gdb_commands.txt)
