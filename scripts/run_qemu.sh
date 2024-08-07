@@ -19,7 +19,7 @@ qemu-system-aarch64 \
     -smp 2 \
     -m 2048 \
     -kernel ${KERNEL_IMAGE} \
-    -append "root=/dev/vda console=ttyAMA0 init=/bin/sh" \
+    -append "root=/dev/vda console=ttyAMA0 init=/bin/sh nokaslr" \
     -drive if=none,file=${ROOTFS_IMG},format=raw,id=hd0 \
     -device virtio-blk-device,drive=hd0 \
     -netdev user,id=net0 \

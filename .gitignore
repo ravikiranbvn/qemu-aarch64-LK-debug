@@ -1,6 +1,6 @@
-linux-6.10.2/*
+linux-6.10.2/
 mnt/
-rootfs_alpine/*
+rootfs_alpine/
 linux-6.10.2.tar.xz
-alpin-minirootfs-3.20.0-aarch64.tar.gz
+alpine-minirootfs-3.20.0-aarch64.tar.gz
 rootfs_alpine.img
