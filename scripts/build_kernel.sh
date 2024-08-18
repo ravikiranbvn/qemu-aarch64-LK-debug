@@ -17,6 +17,7 @@ make ARCH=arm64 CROSS_COMPILE=$CROSS_COMPILE clean || error_exit "Failed to clea
 make ARCH=arm64 CROSS_COMPILE=$CROSS_COMPILE defconfig || error_exit "Failed to configure kernel"
 scripts/config --enable DEBUG_KERNEL || error_exit "Failed to enable debug info"
 scripts/config --enable DEBUG_INFO || error_exit "Failed to enable debug info"
+make ARCH=arm64 CROSS_COMPILE=$CROSS_COMPILE modules_prepare || error_exit "Failed to prepare modules"
 make ARCH=arm64 CROSS_COMPILE=$CROSS_COMPILE -j$(nproc) || error_exit "Failed to compile kernel"
 if [ ! -f "vmlinux" ]; then
     error_exit "vmlinux was not generated"
