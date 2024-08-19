@@ -24,4 +24,4 @@ run_qemu:
 
 clean:
 	@echo "Cleaning up..."
-	rm -rf linux-6.10.2 rootfs rootfs_alpine.img mnt alpine-minirootfs-*.tar.gz linux-*.tar.xz
+	rm -rf linux-6.10.2 rootfs rootfs_alpine.img mnt alpine-minirootfs-*.tar.gz linux-*.tar.xz rootfs_alpine
