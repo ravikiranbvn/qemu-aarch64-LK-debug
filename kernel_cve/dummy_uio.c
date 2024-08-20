@@ -21,25 +21,34 @@ static void dummy_timer_callback(struct timer_list *t)
 
 static int __init dummy_uio_init(void)
 {
+    int ret;
+
     printk(KERN_INFO "Dummy UIO: Initializing module\n");
 
     /* Initialize the uio_info structure */
+    memset(&dummy_uio_info, 0, sizeof(dummy_uio_info));
     dummy_uio_info.name = "dummy_uio";
     dummy_uio_info.version = "0.1";
     dummy_uio_info.irq = UIO_IRQ_CUSTOM;
     dummy_uio_info.irq_flags = 0;
 
+    /* Memory region setup (if any) */
+    dummy_uio_info.mem[0].addr = (phys_addr_t)NULL; // No physical address mapping
+    dummy_uio_info.mem[0].size = 0;                 // No memory region
+    dummy_uio_info.mem[0].memtype = UIO_MEM_NONE;   // No memory type
+
     /* Register the UIO device */
-    if (uio_register_device(NULL, &dummy_uio_info)) {
-        printk(KERN_ERR "Dummy UIO: Failed to register device\n");
-        return -1;
+    ret = uio_register_device(NULL, &dummy_uio_info);
+    if (ret) {
+        printk(KERN_ERR "Dummy UIO: Failed to register device, error: %d\n", ret);
+        return ret;
     }
 
     /* Initialize the timer */
     timer_setup(&dummy_timer, dummy_timer_callback, 0);
     mod_timer(&dummy_timer, jiffies + msecs_to_jiffies(IRQ_PERIOD_MS));
 
-    printk(KERN_INFO "Dummy UIO: Module loaded\n");
+    printk(KERN_INFO "Dummy UIO: Module loaded successfully\n");
     return 0;
 }
 
