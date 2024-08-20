@@ -15,5 +15,5 @@ error_exit() {
 echo "Downloading Linux kernel ${KERNEL_VERSION}..."
 wget ${KERNEL_URL} || error_exit "Failed to download kernel"
 tar -xf linux-${KERNEL_VERSION}.tar.xz || error_exit "Failed to extract kernel"
-rm -rf linux-${KERNEL_VERSION}.tar.gz || error_exit "Failed to remove tar file"
+rm -rf linux-${KERNEL_VERSION}.tar.xz || error_exit "Failed to remove tar file"
 

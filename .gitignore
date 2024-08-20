@@ -4,3 +4,12 @@ rootfs_alpine/
 linux-6.10.2.tar.xz
 alpine-minirootfs-3.20.0-aarch64.tar.gz
 rootfs_alpine.img
+kernel_cve/*.ko
+kernel_cve/*.mod
+kernel_cve/*.mod.c 
+kernel_cve/*.mod.o
+kernel_cve/*.o
+kernel_cve/.*
+kernel_cve/Module.symvers
+kernel_cve/modules.order
+kernel_cve/userapp_uio

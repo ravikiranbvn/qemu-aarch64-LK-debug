@@ -22,6 +22,7 @@ scripts/config --enable DEBUG_INFO || error_exit "Failed to enable debug info"
 
 # uio
 scripts/config --enable UIO || error_exit "Failed to enable UIO support"
+scripts/config --enable UIO_CIF || error_exit "Failed to enable UIO_CIF support"
 scripts/config --enable UIO_PDRV_GENIRQ || error_exit "Failed to enable UIO_PDRV_GENIRQ"
 scripts/config --enable UIO_PCI_GENERIC || error_exit "Failed to enable UIO_PCI_GENERIC support"
 

@@ -1,4 +1,5 @@
-obj-m = vul_km_so.o
+#obj-m = vul_km_so.o
+obj-m = dummy_uio.o
 
 # Define the kernel source directory and architecture
 KERNELDIR ?= ../linux-6.10.2
